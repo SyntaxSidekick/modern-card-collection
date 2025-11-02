@@ -184,11 +184,19 @@ function initializeKeyboardNavigation() {
     const cards = document.querySelectorAll('.card');
     
     cards.forEach((card, index) => {
+        // Skip AI assistant card - it has its own keyboard handling
+        if (card.classList.contains('ai-assistant-card')) {
+            return;
+        }
+        
         // Make cards focusable
         card.setAttribute('tabindex', '0');
         
         card.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
+            // Only handle Enter/Space if the target is the card itself, not an input inside it
+            if ((e.key === 'Enter' || e.key === ' ') && 
+                e.target === this && 
+                !e.target.closest('.chat-input, input, textarea, select')) {
                 e.preventDefault();
                 const primaryButton = card.querySelector('.btn-primary');
                 if (primaryButton) {
@@ -519,6 +527,12 @@ function initializeCodeModal() {
     
     // Use event delegation for code view buttons (works for dynamically added buttons)
     document.body.addEventListener('click', function(e) {
+        // Don't interfere with input elements or AI assistant
+        if (e.target.matches('input, textarea, select') || 
+            e.target.closest('.chat-input, .ai-assistant-card')) {
+            return; // Let the event proceed normally
+        }
+        
         // Check if the clicked element or its parent is a code view button
         const codeBtn = e.target.closest('.code-view-btn');
         if (codeBtn) {
@@ -2202,8 +2216,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // AI Assistant Demo Functionality
 function initAIAssistant() {
     const voiceBtn = document.querySelector('.voice-btn');
-    const chatInput = document.querySelector('.chat-input input');
-    const sendBtn = document.querySelector('.send-btn');
+    const chatInput = document.querySelector('#chatInput');
+    const sendBtn = document.querySelector('#sendBtn');
     const chatContainer = document.querySelector('.chat-container');
     const quickBtns = document.querySelectorAll('.quick-btn');
     const statusDot = document.querySelector('.status-dot');
@@ -2244,7 +2258,7 @@ function initAIAssistant() {
         if (message) {
             addMessage('user', message);
             chatInput.value = '';
-            setTimeout(() => respondToMessage(), 1500);
+            setTimeout(() => respondToMessage(message), 1500); // Pass the actual message
         }
     }
 
@@ -2253,10 +2267,39 @@ function initAIAssistant() {
     }
 
     if (chatInput) {
-        chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
+        // Ensure input is properly enabled and focusable
+        chatInput.removeAttribute('disabled');
+        chatInput.setAttribute('tabindex', '0');
+        
+        // Fix: Use keydown instead of keypress for better key handling
+        chatInput.addEventListener('keydown', function(e) {
+            // Allow normal typing (don't prevent default for regular keys)
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault(); // Prevent default only for Enter
                 sendMessage();
             }
+            // Space, letters, numbers, backspace, etc. will work normally
+        });
+        
+        // Additional input event to ensure typing works
+        chatInput.addEventListener('input', function(e) {
+            // This ensures the input value updates properly
+            console.log('Input value:', this.value); // Debug log
+        });
+        
+        // Ensure input can receive focus and handle typing
+        chatInput.addEventListener('focus', function() {
+            this.setAttribute('aria-expanded', 'true');
+            console.log('Chat input focused'); // Debug log
+        });
+        
+        chatInput.addEventListener('blur', function() {
+            this.setAttribute('aria-expanded', 'false');
+        });
+        
+        // Ensure click focuses the input properly
+        chatInput.addEventListener('click', function() {
+            this.focus();
         });
     }
 
@@ -2315,6 +2358,7 @@ function initAIAssistant() {
 
     // AI response logic
     function respondToMessage(userMessage = '') {
+        console.log('respondToMessage called with:', userMessage); // Debug log
         const typingMessage = showTyping();
         
         setTimeout(() => {
@@ -2329,6 +2373,7 @@ function initAIAssistant() {
             };
             
             const response = responses[userMessage] || responses.default;
+            console.log('Final response:', response); // Debug log
             addMessage('ai', response);
         }, 2000);
     }
@@ -2386,13 +2431,18 @@ Would you like help writing specific tests for any card component?`;
 
     function getContextualResponse(userMessage) {
         const message = userMessage.toLowerCase();
+        console.log('User message:', userMessage, 'Processed:', message); // Debug log
         
         // Check for smart suggestions first
         const smartResponse = getSmartSuggestions(userMessage);
-        if (smartResponse) return smartResponse;
+        if (smartResponse) {
+            console.log('Returning smart response'); // Debug log
+            return smartResponse;
+        }
         
         // Check for specific topics
         if (message.includes('dark mode') || message.includes('theme')) {
+            console.log('Dark mode response triggered'); // Debug log
             return `The dark mode system uses CSS custom properties for seamless theming:
 
 🌙 **Implementation**: Toggle switches data-theme attribute on body
