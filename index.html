@@ -113,9 +113,8 @@
   <!-- Google Fonts - Optimized Loading -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Google+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Material Icons - Deferred -->
-  <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></noscript>
+  <!-- Material Icons - Direct Load -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
   <!-- Font Awesome - Deferred -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -142,6 +141,20 @@
         A collection of 25+ responsive card UI designs by 
         <span style="color: #e8c81a; font-weight: bold;">{Syntax}</span>Sidekick
       </p>
+      
+      <!-- Dark Mode Toggle -->
+      <div class="dark-mode-toggle" style="margin-left: auto;">
+        <span class="toggle-label">
+          <span class="material-icons light-icon">light_mode</span>
+        </span>
+        <label class="toggle-switch" for="darkModeToggle" aria-label="Toggle dark mode">
+          <input type="checkbox" id="darkModeToggle" class="toggle-input">
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label">
+          <span class="material-icons dark-icon">dark_mode</span>
+        </span>
+      </div>
     </div>
   </header>
 
@@ -169,20 +182,20 @@
     <div class="container">
       
       <!-- SEO Introduction Section -->
-      <section class="intro-section" style="background: white; border-radius: 8px; padding: 32px; margin-bottom: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-          <h2 style="font-size: 2rem; color: #202124; margin-bottom: 1rem; font-weight: 400;">
+      <section class="intro-section">
+        <div class="intro-content">
+          <h2 class="intro-title">
             Professional Card UI Components for Modern Web Development
           </h2>
-          <p style="font-size: 1.1rem; color: #5f6368; line-height: 1.6; margin-bottom: 1.5rem;">
+          <p class="intro-description">
             Explore our comprehensive collection of <strong>responsive card components</strong> featuring smooth CSS animations, 
             modern design patterns, and copy-paste code. Perfect for React, Vue, Angular, and vanilla HTML projects.
           </p>
-          <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 1.5rem 0;">
-            <span style="background: #e3f2fd; color: #1976d2; padding: 4px 12px; border-radius: 16px; font-size: 0.875rem; font-weight: 500;">CSS Animations</span>
-            <span style="background: #e8f5e8; color: #2e7d32; padding: 4px 12px; border-radius: 16px; font-size: 0.875rem; font-weight: 500;">Responsive Design</span>
-            <span style="background: #fff3e0; color: #f57c00; padding: 4px 12px; border-radius: 16px; font-size: 0.875rem; font-weight: 500;">Interactive Components</span>
-            <span style="background: #fce4ec; color: #c2185b; padding: 4px 12px; border-radius: 16px; font-size: 0.875rem; font-weight: 500;">Modern UI/UX</span>
+          <div class="intro-tags">
+            <span class="tag tag-blue">CSS Animations</span>
+            <span class="tag tag-green">Responsive Design</span>
+            <span class="tag tag-orange">Interactive Components</span>
+            <span class="tag tag-pink">Modern UI/UX</span>
           </div>
         </div>
       </section>
@@ -737,6 +750,776 @@
                   <button class="btn btn-primary">Take Action</button>
                   <button class="btn btn-text">Learn More</button>
                 </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Form Cards Section -->
+      <section class="card-section" id="form-cards" aria-labelledby="form-cards-title">
+        <h2 id="form-cards-title" class="section-title">Form & Input Components</h2>
+        <p style="color: #5f6368; margin-bottom: 2rem; font-size: 1rem;">
+          Google-style form components with Material Design principles, perfect for authentication, data entry, and user interactions.
+        </p>
+        <div class="cards-grid" role="grid" aria-label="Form card components collection">
+
+          <!-- Login Form Card -->
+          <div class="card" role="gridcell" tabindex="0" aria-label="Google-style login form card">
+            <button class="code-view-btn" data-card="login-form">
+              <span class="material-icons">code</span><span>show code</span>
+            </button>
+            <div class="card-header google-signin-header">
+              <div class="google-logo">
+                <svg class="google-g-logo" viewBox="0 0 24 24" width="32" height="32">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+              </div>
+              <div class="signin-text">
+                <h3>Sign in to your Google Account</h3>
+                <p>Use your Google Account to continue</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <form class="google-form">
+                <div class="form-group">
+                  <input type="email" id="email" class="form-input" placeholder="Email or phone">
+                </div>
+                <div class="form-group">
+                  <input type="password" id="password" class="form-input" placeholder="Enter your password">
+                </div>
+                <div class="form-options">
+                  <label class="checkbox-label">
+                    <input type="checkbox" class="form-checkbox">
+                    <span class="checkbox-custom"></span>
+                    Stay signed in
+                  </label>
+                  <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+                <div class="form-actions">
+                  <button type="button" class="btn btn-text">Create account</button>
+                  <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+              </form>
+              
+              <!-- Social Authentication Divider -->
+              <div class="social-divider">
+                <span class="divider-line"></span>
+                <span class="divider-text">or continue with</span>
+                <span class="divider-line"></span>
+              </div>
+              
+              <!-- Social Authentication Buttons -->
+              <div class="social-auth-buttons">
+                <button class="social-btn google-btn" type="button">
+                  <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                  </svg>
+                  <span>Google</span>
+                </button>
+                
+                <button class="social-btn linkedin-btn" type="button">
+                  <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span>LinkedIn</span>
+                </button>
+                
+                <button class="social-btn github-btn" type="button">
+                  <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="#181717" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                  <span>GitHub</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Card -->
+          <div class="card" role="gridcell" tabindex="0" aria-label="Contact form card with validation">
+            <button class="code-view-btn" data-card="contact-form">
+              <span class="material-icons">code</span><span>show code</span>
+            </button>
+            <div class="card-header google-signin-header">
+              <div class="google-service-icon">
+                <div class="service-icon-wrapper">
+                  <span class="material-icons google-contacts-icon">contact_mail</span>
+                </div>
+              </div>
+              <div class="signin-text">
+                <h3>Google Contacts</h3>
+                <p>Share your feedback or get in touch</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <form class="google-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <input type="text" id="firstName" class="form-input" placeholder="John">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="lastName" class="form-input" placeholder="Doe">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="email" id="contactEmail" class="form-input" placeholder="john.doe@example.com">
+                </div>
+                <div class="form-group">
+                  <label for="subject" class="form-label">Subject</label>
+                  <select id="subject" class="form-select">
+                    <option value="general">General Inquiry</option>
+                    <option value="support">Technical Support</option>
+                    <option value="partnership">Business Partnership</option>
+                    <option value="bug">Bug Report</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <textarea id="message" class="form-textarea" rows="4" placeholder="Tell us how we can help you..."></textarea>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">Send message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Settings Form Card -->
+          <div class="card" role="gridcell" tabindex="0" aria-label="Settings configuration form">
+            <button class="code-view-btn" data-card="settings-form">
+              <span class="material-icons">code</span><span>show code</span>
+            </button>
+            <div class="card-header google-signin-header">
+              <div class="google-service-icon">
+                <div class="service-icon-wrapper">
+                  <span class="material-icons google-account-icon">account_circle</span>
+                </div>
+              </div>
+              <div class="signin-text">
+                <h3>Google Account Settings</h3>
+                <p>Manage your Google Account preferences</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <form class="google-form">
+                <div class="settings-section">
+                  <h4 class="settings-title">Notifications</h4>
+                  <div class="setting-item">
+                    <label class="toggle-setting">
+                      <input type="checkbox" class="toggle-input" checked>
+                      <span class="toggle-slider"></span>
+                      <span class="setting-label">Email notifications</span>
+                    </label>
+                    <p class="setting-description">Receive updates via email</p>
+                  </div>
+                  <div class="setting-item">
+                    <label class="toggle-setting">
+                      <input type="checkbox" class="toggle-input">
+                      <span class="toggle-slider"></span>
+                      <span class="setting-label">Push notifications</span>
+                    </label>
+                    <p class="setting-description">Get instant notifications</p>
+                  </div>
+                </div>
+                <div class="settings-section">
+                  <h4 class="settings-title">Privacy</h4>
+                  <div class="form-group">
+                    <label for="visibility" class="form-label">Profile visibility</label>
+                    <select id="visibility" class="form-select">
+                      <option value="public">Public</option>
+                      <option value="friends">Friends only</option>
+                      <option value="private">Private</option>
+                    </select>
+                  </div>
+                  <div class="setting-item">
+                    <label class="toggle-setting">
+                      <input type="checkbox" class="toggle-input" checked>
+                      <span class="toggle-slider"></span>
+                      <span class="setting-label">Two-factor authentication</span>
+                    </label>
+                    <p class="setting-description">Add extra security to your account</p>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button type="button" class="btn btn-text">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Data Display Cards Section -->
+      <section class="card-section" id="data-cards" aria-labelledby="data-cards-title">
+        <h2 id="data-cards-title" class="section-title">Data & Analytics Components</h2>
+        <p style="color: #5f6368; margin-bottom: 2rem; font-size: 1rem;">
+          Clean data visualization cards inspired by Google Analytics and Workspace, perfect for dashboards and reporting interfaces.
+        </p>
+        <div class="cards-grid" role="grid" aria-label="Data display card components collection">
+
+          <!-- Statistics Card -->
+          <div class="card" role="gridcell" tabindex="0" aria-label="Statistics overview card">
+            <button class="code-view-btn" data-card="stats-card">
+              <span class="material-icons">code</span><span>show code</span>
+            </button>
+            <div class="card-header">
+              <h3>Website Analytics</h3>
+              <p>Last 30 days</p>
+            </div>
+            <div class="card-content">
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-value">124,532</div>
+                  <div class="stat-label">Page Views</div>
+                  <div class="stat-change positive">
+                    <span class="material-icons">trending_up</span>
+                    +12.5%
+                  </div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">8,429</div>
+                  <div class="stat-label">Unique Visitors</div>
+                  <div class="stat-change positive">
+                    <span class="material-icons">trending_up</span>
+                    +8.2%
+                  </div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">3:42</div>
+                  <div class="stat-label">Avg. Session</div>
+                  <div class="stat-change negative">
+                    <span class="material-icons">trending_down</span>
+                    -2.1%
+                  </div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">62.4%</div>
+                  <div class="stat-label">Bounce Rate</div>
+                  <div class="stat-change negative">
+                    <span class="material-icons">trending_down</span>
+                    -5.3%
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Table Card -->
+          <div class="card" role="gridcell" tabindex="0" aria-label="Data table with pagination">
+            <button class="code-view-btn" data-card="data-table">
+              <span class="material-icons">code</span><span>show code</span>
+            </button>
+            <div class="card-header">
+              <h3>Top Pages</h3>
+              <p>Most visited content</p>
+            </div>
+            <div class="card-content">
+              <div class="data-table">
+                <div class="table-header">
+                  <div class="table-cell">Page</div>
+                  <div class="table-cell">Views</div>
+                  <div class="table-cell">Rate</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">
+                    <div class="page-title">/home</div>
+                    <div class="page-url">Homepage</div>
+                  </div>
+                  <div class="table-cell">
+                    <span class="metric-value">45,231</span>
+                  </div>
+                  <div class="table-cell">
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">
+                    <div class="page-title">/about</div>
+                    <div class="page-url">About Us</div>
+                  </div>
+                  <div class="table-cell">
+                    <span class="metric-value">12,847</span>
+                  </div>
+                  <div class="table-cell">
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 32%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">
+                    <div class="page-title">/blog</div>
+                    <div class="page-url">Blog Posts</div>
+                  </div>
+                  <div class="table-cell">
+                    <span class="metric-value">8,924</span>
+                  </div>
+                  <div class="table-cell">
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 24%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">
+                    <div class="page-title">/contact</div>
+                    <div class="page-url">Contact Form</div>
+                  </div>
+                  <div class="table-cell">
+                    <span class="metric-value">3,156</span>
+                  </div>
+                  <div class="table-cell">
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 12%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-footer">
+                <span class="table-info">Showing 4 of 24 pages</span>
+                <button class="btn btn-text">View all</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metrics Card -->
+          <div class="card" role="gridcell" tabindex="0" aria-label="Key performance metrics card">
+            <button class="code-view-btn" data-card="metrics-card">
+              <span class="material-icons">code</span><span>show code</span>
+            </button>
+            <div class="card-header">
+              <h3>Performance Metrics</h3>
+              <p>System health overview</p>
+            </div>
+            <div class="card-content">
+              <div class="metrics-list">
+                <div class="metric-item">
+                  <div class="metric-icon cpu">
+                    <span class="material-icons">memory</span>
+                  </div>
+                  <div class="metric-details">
+                    <div class="metric-name">CPU Usage</div>
+                    <div class="metric-progress">
+                      <div class="progress-bar">
+                        <div class="progress-fill cpu-fill" style="width: 68%"></div>
+                      </div>
+                      <span class="progress-label">68%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-icon memory">
+                    <span class="material-icons">storage</span>
+                  </div>
+                  <div class="metric-details">
+                    <div class="metric-name">Memory Usage</div>
+                    <div class="metric-progress">
+                      <div class="progress-bar">
+                        <div class="progress-fill memory-fill" style="width: 42%"></div>
+                      </div>
+                      <span class="progress-label">42%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-icon storage">
+                    <span class="material-icons">folder</span>
+                  </div>
+                  <div class="metric-details">
+                    <div class="metric-name">Storage Used</div>
+                    <div class="metric-progress">
+                      <div class="progress-bar">
+                        <div class="progress-fill storage-fill" style="width: 78%"></div>
+                      </div>
+                      <span class="progress-label">78%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-icon network">
+                    <span class="material-icons">wifi</span>
+                  </div>
+                  <div class="metric-details">
+                    <div class="metric-name">Network Load</div>
+                    <div class="metric-progress">
+                      <div class="progress-bar">
+                        <div class="progress-fill network-fill" style="width: 23%"></div>
+                      </div>
+                      <span class="progress-label">23%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Chart/Graph Cards Section -->
+      <section class="card-section" id="chart-cards" aria-labelledby="chart-cards-title">
+        <h2 id="chart-cards-title" class="section-title">Charts & Visualization Components</h2>
+        <p style="color: #5f6368; margin-bottom: 2rem; font-size: 1rem;">
+          Pure CSS charts and data visualization components inspired by Google Charts, perfect for dashboards and analytics interfaces.
+        </p>
+        <div class="cards-grid" role="grid" aria-label="Chart and graph card components collection">
+
+          <!-- Donut Chart Card -->
+          <div class="card" role="gridcell" tabindex="0" aria-label="Donut chart with progress indicators">
+            <button class="code-view-btn" data-card="donut-chart">
+              <span class="material-icons">code</span><span>show code</span>
+            </button>
+            <div class="card-header">
+              <h3>Storage Usage</h3>
+              <p>Disk space breakdown</p>
+            </div>
+            <div class="card-content">
+              <div class="chart-container">
+                <div class="donut-chart">
+                  <div class="donut-center">
+                    <div class="donut-value">78%</div>
+                    <div class="donut-label">Used</div>
+                  </div>
+                  <svg viewBox="0 0 120 120" class="donut-svg">
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="#e8eaed" stroke-width="10"/>
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="#1a73e8" stroke-width="10" 
+                            stroke-dasharray="245" stroke-dashoffset="55" stroke-linecap="round" 
+                            transform="rotate(-90 60 60)"/>
+                  </svg>
+                </div>
+                <div class="chart-legend">
+                  <div class="legend-item">
+                    <div class="legend-color" style="background: #1a73e8;"></div>
+                    <span>Documents (45GB)</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-color" style="background: #34a853;"></div>
+                    <span>Photos (18GB)</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-color" style="background: #fbbc04;"></div>
+                    <span>Videos (15GB)</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-color" style="background: #e8eaed;"></div>
+                    <span>Available (22GB)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bar Chart Card -->
+          <div class="card" role="gridcell" tabindex="0" aria-label="Horizontal bar chart for comparison">
+            <button class="code-view-btn" data-card="bar-chart">
+              <span class="material-icons">code</span><span>show code</span>
+            </button>
+            <div class="card-header">
+              <h3>Monthly Revenue</h3>
+              <p>Last 6 months comparison</p>
+            </div>
+            <div class="card-content">
+              <div class="bar-chart">
+                <div class="chart-axis">
+                  <div class="axis-item">
+                    <span class="axis-label">Dec</span>
+                    <div class="bar-container">
+                      <div class="bar" style="width: 85%;">
+                        <span class="bar-value">$45,200</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="axis-item">
+                    <span class="axis-label">Nov</span>
+                    <div class="bar-container">
+                      <div class="bar" style="width: 72%;">
+                        <span class="bar-value">$38,400</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="axis-item">
+                    <span class="axis-label">Oct</span>
+                    <div class="bar-container">
+                      <div class="bar" style="width: 95%;">
+                        <span class="bar-value">$50,800</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="axis-item">
+                    <span class="axis-label">Sep</span>
+                    <div class="bar-container">
+                      <div class="bar" style="width: 68%;">
+                        <span class="bar-value">$36,300</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="axis-item">
+                    <span class="axis-label">Aug</span>
+                    <div class="bar-container">
+                      <div class="bar" style="width: 78%;">
+                        <span class="bar-value">$41,700</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="axis-item">
+                    <span class="axis-label">Jul</span>
+                    <div class="bar-container">
+                      <div class="bar" style="width: 62%;">
+                        <span class="bar-value">$33,100</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Line Chart Card -->
+          <div class="card" role="gridcell" tabindex="0" aria-label="Line chart showing trends over time">
+            <button class="code-view-btn" data-card="line-chart">
+              <span class="material-icons">code</span><span>show code</span>
+            </button>
+            <div class="card-header">
+              <h3>User Growth</h3>
+              <p>Weekly active users</p>
+            </div>
+            <div class="card-content">
+              <div class="line-chart">
+                <svg viewBox="0 0 300 150" class="line-svg">
+                  <!-- Grid lines -->
+                  <defs>
+                    <pattern id="grid" width="50" height="30" patternUnits="userSpaceOnUse">
+                      <path d="M 50 0 L 0 0 0 30" fill="none" stroke="#f1f3f4" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid)" />
+                  
+                  <!-- Data line -->
+                  <polyline fill="none" stroke="#1a73e8" stroke-width="3" 
+                           points="20,120 70,100 120,85 170,70 220,75 270,45"/>
+                  
+                  <!-- Data points -->
+                  <circle cx="20" cy="120" r="4" fill="#1a73e8"/>
+                  <circle cx="70" cy="100" r="4" fill="#1a73e8"/>
+                  <circle cx="120" cy="85" r="4" fill="#1a73e8"/>
+                  <circle cx="170" cy="70" r="4" fill="#1a73e8"/>
+                  <circle cx="220" cy="75" r="4" fill="#1a73e8"/>
+                  <circle cx="270" cy="45" r="4" fill="#1a73e8"/>
+                  
+                  <!-- Area fill -->
+                  <polygon fill="rgba(26, 115, 232, 0.1)" 
+                           points="20,120 70,100 120,85 170,70 220,75 270,45 270,140 20,140"/>
+                </svg>
+                <div class="chart-labels">
+                  <span>Week 1</span>
+                  <span>Week 2</span>
+                  <span>Week 3</span>
+                  <span>Week 4</span>
+                  <span>Week 5</span>
+                  <span>Week 6</span>
+                </div>
+                <div class="chart-stats">
+                  <div class="chart-stat">
+                    <span class="stat-number">12,847</span>
+                    <span class="stat-text">Current</span>
+                  </div>
+                  <div class="chart-stat">
+                    <span class="stat-number">+23.4%</span>
+                    <span class="stat-text">Growth</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Live Demo Cards Section -->
+      <section class="card-section" id="demo-cards" aria-labelledby="demo-cards-title">
+        <h2 id="demo-cards-title" class="section-title">🚀 Live Demo Showcase</h2>
+        <p style="color: #5f6368; margin-bottom: 2rem; font-size: 1rem;">
+          Cutting-edge interactive demos showcasing advanced UI patterns and real-time features. These demos represent the future of web interfaces.
+        </p>
+        <div class="cards-grid" role="grid" aria-label="Live demo showcase cards">
+
+          <!-- AI Assistant Demo Card -->
+          <div class="card ai-assistant-card" role="gridcell" tabindex="0" aria-label="AI Assistant live demo">
+            <div class="demo-badge">LIVE DEMO</div>
+            <div class="card-header">
+              <div class="ai-header">
+                <div class="ai-avatar">
+                  <div class="ai-pulse"></div>
+                  <span class="material-icons">smart_toy</span>
+                </div>
+                <div class="ai-info">
+                  <h3>Google AI Assistant</h3>
+                  <div class="ai-status">
+                    <span class="status-dot active"></span>
+                    <span>Active • Listening</span>
+                  </div>
+                </div>
+                <div class="ai-controls">
+                  <button class="voice-btn" id="voiceBtn">
+                    <span class="material-icons">mic</span>
+                  </button>
+                  <button class="settings-btn">
+                    <span class="material-icons">settings</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="chat-container" id="chatContainer">
+                <div class="chat-message user">
+                  <div class="message-avatar">
+                    <span class="material-icons">person</span>
+                  </div>
+                  <div class="message-content">
+                    <p>Hey Google, can you help me optimize this UI component?</p>
+                    <span class="message-time">2:34 PM</span>
+                  </div>
+                </div>
+                <div class="chat-message ai">
+                  <div class="message-avatar ai-avatar-small">
+                    <span class="material-icons">smart_toy</span>
+                  </div>
+                  <div class="message-content">
+                    <div class="typing-indicator" id="typingIndicator">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <p class="ai-response" id="aiResponse" style="display: none;">
+                      I'd be happy to help! Based on current Material Design 3.0 principles, I recommend:
+                      <br><br>
+                      • Increased contrast ratios for accessibility
+                      <br>• Smoother micro-animations (0.2s cubic-bezier)
+                      <br>• Dynamic color theming support
+                      <br>• Gesture-based interactions for mobile
+                    </p>
+                    <span class="message-time">2:34 PM</span>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-input-container">
+                <div class="chat-input">
+                  <input type="text" placeholder="Ask about cards, code, dark mode, or animations..." id="chatInput">
+                  <button class="send-btn" id="sendBtn">
+                    <span class="material-icons">send</span>
+                  </button>
+                </div>
+                <div class="quick-actions">
+                  <button class="quick-btn">Explain Code</button>
+                  <button class="quick-btn">Debug Issue</button>
+                  <button class="quick-btn">Optimize Performance</button>
+                  <button class="quick-btn">Generate Tests</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GitHub Integration Demo Card -->
+          <div class="card collaboration-card github-integration-demo" role="gridcell" tabindex="0" aria-label="GitHub integration demo" data-card-type="github-demo">
+            <div class="demo-badge">LIVE DEMO</div>
+            <div class="card-header">
+              <div class="collab-header">
+                <div class="project-info">
+                  <h3>GitHub Repository Dashboard</h3>
+                  <p id="repoDescription">Loading repository data...</p>
+                </div>
+                <div class="github-actions-demo">
+                  <button id="refreshRepo" class="github-btn refresh-btn" title="Refresh repository data">
+                    <span class="material-icons">refresh</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <!-- Repository Stats -->
+              <div class="repo-overview">
+                <div class="repo-stat">
+                  <span class="material-icons">star</span>
+                  <div class="stat-content">
+                    <span class="stat-number" id="repoStars">--</span>
+                    <span class="stat-label">Stars</span>
+                  </div>
+                </div>
+                <div class="repo-stat">
+                  <span class="material-icons">call_split</span>
+                  <div class="stat-content">
+                    <span class="stat-number" id="repoForks">--</span>
+                    <span class="stat-label">Forks</span>
+                  </div>
+                </div>
+                <div class="repo-stat">
+                  <span class="material-icons">bug_report</span>
+                  <div class="stat-content">
+                    <span class="stat-number" id="repoIssues">--</span>
+                    <span class="stat-label">Issues</span>
+                  </div>
+                </div>
+                <div class="repo-stat">
+                  <span class="material-icons">schedule</span>
+                  <div class="stat-content">
+                    <span class="stat-number" id="lastUpdated">--</span>
+                    <span class="stat-label">Last Update</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recent Commits -->
+              <div class="commits-section">
+                <h4 style="margin: 16px 0 12px 0; font-size: 16px; color: #202124; font-weight: 500;">Recent Commits</h4>
+                <div class="commits-list" id="commitsList">
+                  <div class="commit-item loading">
+                    <div class="commit-avatar">
+                      <span class="material-icons">hourglass_empty</span>
+                    </div>
+                    <div class="commit-content">
+                      <p>Loading recent commits...</p>
+                      <span class="commit-time">Please wait</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Languages Used -->
+              <div class="languages-section">
+                <h4 style="margin: 16px 0 12px 0; font-size: 16px; color: #202124; font-weight: 500;">Languages</h4>
+                <div class="languages-chart" id="languagesChart">
+                  <div class="language-item loading">
+                    <div class="language-color" style="background: #ccc;"></div>
+                    <span class="language-name">Loading...</span>
+                    <span class="language-percentage">--%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- GitHub Actions -->
+              <div class="github-interaction">
+                <button id="starButton" class="github-btn star-repo-btn" disabled>
+                  <span class="material-icons">star_border</span>
+                  <span>Star Repository</span>
+                </button>
+                <button id="watchButton" class="github-btn watch-repo-btn" disabled>
+                  <span class="material-icons">visibility</span>
+                  <span>Watch Repository</span>
+                </button>
+                <a href="https://github.com/SyntaxSidekick/modern-card-collection" target="_blank" rel="noopener noreferrer" class="github-btn view-repo-btn">
+                  <span class="material-icons">open_in_new</span>
+                  <span>View on GitHub</span>
+                </a>
               </div>
             </div>
           </div>

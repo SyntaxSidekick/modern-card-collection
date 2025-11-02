@@ -64,3 +64,8 @@ coverage/
 # Test files (if you add tests later)
 test-results/
 playwright-report/
+
+# Developer/AI context files (not for public repo)
+DEV_CONTEXT.md
+DEV_*.md
+AI_SESSION_*.md
