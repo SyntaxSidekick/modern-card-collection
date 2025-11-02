@@ -350,7 +350,22 @@ function initializeAnimatedCards() {
 function initializeTiltEffect() {
     const tiltCards = document.querySelectorAll('.card-tilt');
     
-    tiltCards.forEach(card => {
+    console.log('Initializing tilt effect for', tiltCards.length, 'cards'); // Debug log
+    
+    tiltCards.forEach((card, index) => {
+        console.log(`Setting up tilt for card ${index + 1}:`, card); // Debug log
+        
+        const tiltIcon = card.querySelector('.tilt-icon');
+        
+        // Set initial styles
+        card.style.transformStyle = 'preserve-3d';
+        card.style.transition = 'none'; // Remove any CSS transitions
+        
+        if (tiltIcon) {
+            tiltIcon.style.transformStyle = 'preserve-3d';
+            tiltIcon.style.transition = 'none';
+        }
+        
         card.addEventListener('mousemove', function(e) {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -359,14 +374,46 @@ function initializeTiltEffect() {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
+            // Calculate rotation with more visible effect for testing
+            const rotateX = (y - centerY) / 5; // More sensitive for testing
+            const rotateY = (centerX - x) / 5;
             
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            console.log(`Mouse move - X: ${rotateX.toFixed(2)}, Y: ${rotateY.toFixed(2)}`); // Debug log
+            
+            // Apply transform
+            const transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            card.style.transform = transform;
+            
+            // Add 3D effect to icon
+            if (tiltIcon) {
+                const iconTransform = `translateZ(30px) rotateX(${rotateX * 0.3}deg) rotateY(${rotateY * 0.3}deg)`;
+                tiltIcon.style.transform = iconTransform;
+            }
         });
         
         card.addEventListener('mouseleave', function() {
+            console.log('Mouse leave - resetting transform'); // Debug log
+            
+            // Smooth return with temporary transition
+            card.style.transition = 'transform 0.3s ease';
             card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+            
+            if (tiltIcon) {
+                tiltIcon.style.transition = 'transform 0.3s ease';
+                tiltIcon.style.transform = 'translateZ(0px) rotateX(0deg) rotateY(0deg)';
+            }
+            
+            // Remove transition after animation completes
+            setTimeout(() => {
+                card.style.transition = 'none';
+                if (tiltIcon) {
+                    tiltIcon.style.transition = 'none';
+                }
+            }, 300);
+        });
+        
+        card.addEventListener('mouseenter', function() {
+            console.log('Mouse enter - preparing for tilt'); // Debug log
         });
     });
 }
