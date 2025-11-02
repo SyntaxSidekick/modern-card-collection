@@ -2433,6 +2433,12 @@ Would you like help writing specific tests for any card component?`;
         const message = userMessage.toLowerCase();
         console.log('User message:', userMessage, 'Processed:', message); // Debug log
         
+        // Simple test response for debugging
+        if (message.includes('test')) {
+            console.log('Test response triggered'); // Debug log
+            return `🧪 **Test Response**: This is working! You typed: "${userMessage}"`;
+        }
+        
         // Check for smart suggestions first
         const smartResponse = getSmartSuggestions(userMessage);
         if (smartResponse) {
@@ -2451,6 +2457,19 @@ Would you like help writing specific tests for any card component?`;
 ✨ **Smooth**: CSS transitions create fluid color changes
 
 Try the toggle in the header - it affects the demo interface while preserving card component styles for clean copy-paste!`;
+        }
+        
+        if (message.includes('add') || message.includes('cards') || message.includes('components')) {
+            console.log('Add cards response triggered'); // Debug log
+            return `You can use these cards in your projects! Here's how:
+
+📋 **Copy Code**: Click the </> button on any card to get HTML, CSS, and JS
+🎨 **Customize**: Modify colors, spacing, and content to match your design
+📦 **Add More**: Each card is self-contained - just copy the code blocks
+🔧 **Integration**: Works with any framework - React, Vue, vanilla HTML
+📱 **Responsive**: All cards include mobile-first responsive design
+
+Which specific card type would you like to add to your project?`;
         }
         
         if (message.includes('responsive') || message.includes('mobile')) {

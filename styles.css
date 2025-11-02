@@ -3549,6 +3549,24 @@ pre[class*=language-] {
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s ease;
+  
+  /* Ensure input is fully interactive */
+  pointer-events: auto;
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  
+  /* Ensure proper text input behavior */
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: none;
+  
+  /* Prevent any interference */
+  position: relative;
+  z-index: 1;
+  background: white;
+  color: #3c4043;
 }
 
 .chat-input input:focus {
