@@ -4,6 +4,8 @@ A comprehensive collection of **25+ modern, responsive card UI components** feat
 
 🌐 **Live Demo**: [https://syntaxsidekick.github.io/modern-card-collection/](https://syntaxsidekick.github.io/modern-card-collection/)
 
+<img width="1894" height="913" alt="modern-card-collection" src="https://github.com/user-attachments/assets/433b219c-cd86-4d5e-8bc3-be5e7f6456c6" />
+
 ![Modern Card Collection Preview](./assets/preview.png)
 
 ## ✨ Features
